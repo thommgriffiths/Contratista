@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import Jornales from "../Screens/cargaJornales";
+import FormJornales from "../Screens/FormJornales";
 
 function HomeScreen(props) {
   return (
@@ -49,6 +50,7 @@ function MyDrawer() {
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Perfil" component={PerfilScreen} />
         <Drawer.Screen name="Jornales" component={Jornales} />
+        <Drawer.Screen name="Formulario" component={FormJornales} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
