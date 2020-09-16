@@ -1,23 +1,23 @@
 const Obras = [
   {
     nombre: "Ruprecht",
-    ID: "01",
+    id: "01",
   },
   {
     nombre: "Pizarro",
-    ID: "03",
+    id: "03",
   },
   {
     nombre: "Alfonsin",
-    ID: "04",
+    id: "04",
   },
   {
     nombre: "Cassino",
-    ID: "05",
+    id: "05",
   },
   {
     nombre: "Pueyrredon",
-    ID: "06",
+    id: "06",
   },
 ];
 
