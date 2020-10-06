@@ -7,6 +7,7 @@ import {
   Button,
   Picker,
   FlatList,
+  ScrollView,
 } from "react-native";
 import { Card } from "react-native-elements";
 
@@ -15,7 +16,7 @@ import UNIJornales from "../assets/UnidadesJornales";
 
 const baseUrl = "https://my-json-server.typicode.com/thommgriffiths/Server/";
 
-class FormJornales extends Component {
+class FormAdicionales extends Component {
   constructor() {
     super();
     this.state = {
@@ -23,8 +24,9 @@ class FormJornales extends Component {
       Tareas: [],
       SelectedObra: "",
       SelectedTarea: "",
-      SelectedJornales: "",
-      contratista: "",
+      Total: "",
+      contratista: "Logged Arquitecto",
+      Detalle: "",
     };
   }
 
@@ -37,9 +39,11 @@ class FormJornales extends Component {
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
-        Contratista: "Usuario Loggeado",
+        Contratista: this.state.contratista,
         Obra: this.state.SelectedObra,
         Tarea: this.state.SelectedTarea,
+        Detalle: this.state.Detalle,
+        Total: this.state.Total,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -123,78 +127,79 @@ class FormJornales extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text />
-        <Card>
-          <Card.Title> Carga de Jornales </Card.Title>
-          <Card.Divider />
-          <Text style={{ marginBottom: 10 }}>
-            Completa el formulario debajo
-          </Text>
+      <ScrollView>
+        <View style={styles.container}>
           <Text />
-          <Text> Seleccione Obra</Text>
-          <Picker
-            selectedValue={this.state.SelectedObra}
-            style={styles.picker}
-            onValueChange={(itemValue, itemIndex) =>
-              this.setState({ SelectedObra: itemValue })
-            }
-          >
-            {this.state.Obras.map((i, index) => (
-              <Picker.Item key={index} label={i.nombre} value={i.id} />
-            ))}
-          </Picker>
           <Text />
-          <Text> Seleccione Tarea</Text>
-          <Picker
-            selectedValue={this.state.SelectedTarea}
-            style={styles.picker}
-            onValueChange={(itemValue, itemIndex) =>
-              this.setState({ SelectedTarea: itemValue })
-            }
-          >
-            {this.state.Tareas.map((i, index) => (
-              <Picker.Item key={index} label={i.nombre} value={i.id} />
-            ))}
-          </Picker>
+          <Card>
+            <Card.Title> Carga de gastos Adicionales </Card.Title>
+            <Card.Divider />
+            <Text style={{ marginBottom: 10 }}>
+              Completa el formulario debajo
+            </Text>
+            <Text />
+            <Text> Seleccione Obra</Text>
+            <Picker
+              selectedValue={this.state.SelectedObra}
+              style={styles.picker}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({ SelectedObra: itemValue })
+              }
+            >
+              {this.state.Obras.map((i, index) => (
+                <Picker.Item key={index} label={i.nombre} value={i.id} />
+              ))}
+            </Picker>
+            <Text />
+            <Text> Seleccione Tarea</Text>
+            <Picker
+              selectedValue={this.state.SelectedTarea}
+              style={styles.picker}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({ SelectedTarea: itemValue })
+              }
+            >
+              {this.state.Tareas.map((i, index) => (
+                <Picker.Item key={index} label={i.nombre} value={i.id} />
+              ))}
+            </Picker>
+            <Text />
+            <Text> Ingrese el detalle de la solicitud</Text>
+            <TextInput
+              placeholder="Detalle"
+              multiline
+              numberOfLines={4}
+              style={styles.textinput}
+              onChangeText={(text) => {
+                this.setState({ Detalle: text });
+              }}
+            />
+            <Text />
+            <Text> Ingrese el monto del reembolso</Text>
+            <TextInput
+              placeholder="Monto"
+              keyboardType="numeric"
+              style={styles.textinput}
+              onChangeText={(text) => {
+                this.setState({ Total: text });
+              }}
+            />
+          </Card>
           <Text />
-          <Text> Seleccione Cantidad</Text>
-          <Picker
-            selectedValue={this.state.SelectedJornales}
-            style={styles.picker}
-            onValueChange={(itemValue, itemIndex) =>
-              this.setState({ SelectedJornales: itemValue })
-            }
-          >
-            {UNIJornales.map((i, index) => (
-              <Picker.Item key={index} label={i.label} value={i.valor} />
-            ))}
-          </Picker>
-        </Card>
-        <Text />
 
-        <Button
-          title="Cargar Jornales"
-          onPress={() => {
-            this.enviar();
-            //alert(this.state.SelectedObra);
-          }}
-        />
-      </View>
+          <Button
+            title="Pedir Reembolso"
+            onPress={() => {
+              this.enviar();
+              //alert(this.state.SelectedObra);
+            }}
+          />
+          <Text></Text>
+        </View>
+      </ScrollView>
     );
   }
 }
-
-/*          
-<TextInput
-    placeholder="Numero de jornales"
-    keyboardType="numeric"
-    style={styles.textinput}
-    onChangeText={(text) => {
-        this.setState({ SelectedObra: text });
-    }}
-/>
-*/
 
 const styles = StyleSheet.create({
   container: {
@@ -214,4 +219,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FormJornales;
+export default FormAdicionales;
