@@ -1,0 +1,12 @@
+
+
+* Short Term
+** consulta jornales
+    Agregar fecha a cada tarjeta
+
+
+
+* Long Term
+
+** form agregar adicionales
+    eliminar el cuadrado gris debajo

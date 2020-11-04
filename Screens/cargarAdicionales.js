@@ -71,11 +71,11 @@ class cargarAdicionales extends Component {
 
         <CheckBox
           center
-          title="Nuevo Jornal"
+          title="Cargar Adicional"
           iconRight
           iconType="material"
           uncheckedIcon="add"
-          onPress={() => navigate("CargarJForm")}
+          onPress={() => navigate("CargarAForm")}
         />
 
         <Text />

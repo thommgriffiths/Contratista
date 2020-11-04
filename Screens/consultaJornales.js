@@ -104,14 +104,7 @@ class ListaJornales extends Component {
       <SafeAreaView style={styles.container}>
         <Text />
         <Text />
-        <Text style={{ fontSize: 20 }}>Jornales Cargados</Text>
-
-        <Button
-          title="Nueva Busqueda"
-          onPress={() => navigate("ConsultaJForm")}
-        />
-
-        <Button title="Check State" onPress={() => this.localtest()} />
+        <Text style={{ fontSize: 20 }}>Jornales Historicos</Text>
 
         <ScrollView>
           <Text />

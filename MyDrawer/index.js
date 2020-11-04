@@ -29,7 +29,7 @@ function HomeScreen(props) {
         style={styles.TouchableOpacity}
         onPress={() => props.navigation.navigate("Consulta Jornales")}
       >
-        <Text style={{ color: "#fff", fontSize: 20 }}>Consulta Jornales</Text>
+        <Text style={{ color: "#fff", fontSize: 20 }}>Consulta Historica</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -56,10 +56,7 @@ function MyDrawer() {
         <Drawer.Screen name="ConsultaJForm" component={consultaJornalesForm} />
         <Drawer.Screen name="Cargar Jornales" component={cargarJornales} />
         <Drawer.Screen name="CargarJForm" component={cargarJornalesForm} />
-        <Drawer.Screen
-          name="Cargar Adicionales"
-          component={cargarAdicionales}
-        />
+        <Drawer.Screen name="Carga Adicionales" component={cargarAdicionales} />
         <Drawer.Screen name="CargarAForm" component={cargarAdicionalesForm} />
       </Drawer.Navigator>
     </NavigationContainer>
